@@ -1,0 +1,68 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\_Mis Cosas\\Biblioteca\\_Estudiar\\__ACTUAL\\DAM\\M09 - PROGRAMACIÓN DE SERVICIOS Y PROCESOS\\UF2\\PRACTICA\\Enunciado\\Trenes\\Trenes.csproj": {}
+  },
+  "projects": {
+    "D:\\_Mis Cosas\\Biblioteca\\_Estudiar\\__ACTUAL\\DAM\\M09 - PROGRAMACIÓN DE SERVICIOS Y PROCESOS\\UF2\\PRACTICA\\Enunciado\\Trenes\\Trenes.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\_Mis Cosas\\Biblioteca\\_Estudiar\\__ACTUAL\\DAM\\M09 - PROGRAMACIÓN DE SERVICIOS Y PROCESOS\\UF2\\PRACTICA\\Enunciado\\Trenes\\Trenes.csproj",
+        "projectName": "Trenes",
+        "projectPath": "D:\\_Mis Cosas\\Biblioteca\\_Estudiar\\__ACTUAL\\DAM\\M09 - PROGRAMACIÓN DE SERVICIOS Y PROCESOS\\UF2\\PRACTICA\\Enunciado\\Trenes\\Trenes.csproj",
+        "packagesPath": "C:\\Users\\XSSal\\.nuget\\packages\\",
+        "outputPath": "D:\\_Mis Cosas\\Biblioteca\\_Estudiar\\__ACTUAL\\DAM\\M09 - PROGRAMACIÓN DE SERVICIOS Y PROCESOS\\UF2\\PRACTICA\\Enunciado\\Trenes\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\XSSal\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "netcoreapp6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "netcoreapp6.0",
+          "dependencies": {
+            "MonoGame.Framework.DesktopGL": {
+              "target": "Package",
+              "version": "[3.8.0.1641, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
