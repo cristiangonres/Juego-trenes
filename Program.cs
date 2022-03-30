@@ -19,6 +19,8 @@ namespace Ferroviario
         public int Velocidad { get; set; }
         public int Iterador_X { get; set; }
         public string Via { get; set; }
+
+
     }
 
     public class DatosVias
@@ -110,14 +112,14 @@ namespace Ferroviario
 
             spriteBatch.Begin();
 
-            
-            DibujarLinea (DatosVias.LimiteInf_x, DatosVias.ViaAB_y, DatosVias.ViaU_x_Ini, DatosVias.ViaAB_y, Color.White, DatosVias.Ancho_Via);
-            DibujarLinea (DatosVias.LimiteInf_x,DatosVias.ViaBA_y,DatosVias.ViaU_x_Ini,DatosVias.ViaBA_y,Color.White,DatosVias.Ancho_Via);
-            DibujarLinea (DatosVias.ViaU_x_Fi,DatosVias.ViaAB_y,DatosVias.LimiteSup_x,DatosVias.ViaAB_y,Color.White,DatosVias.Ancho_Via);
-            DibujarLinea (DatosVias.ViaU_x_Fi,DatosVias.ViaBA_y,DatosVias.LimiteSup_x,DatosVias.ViaBA_y,Color.White,DatosVias.Ancho_Via);
-            DibujarLinea (DatosVias.ViaU_x_Ini,DatosVias.ViaU_y,DatosVias.ViaU_x_Fi,DatosVias.ViaU_y,Color.White,DatosVias.Ancho_Via);
-            DibujarLinea (DatosVias.ViaU_x_Ini,DatosVias.ViaAB_y,DatosVias.ViaU_x_Ini + DatosVias.Ancho_Via,DatosVias.ViaBA_y,Color.White,DatosVias.ViaBA_y-DatosVias.ViaAB_y+DatosVias.Ancho_Via);
-            DibujarLinea (DatosVias.ViaU_x_Fi,DatosVias.ViaAB_y,DatosVias.ViaU_x_Fi + DatosVias.Ancho_Via,DatosVias.ViaBA_y,Color.White,DatosVias.ViaBA_y-DatosVias.ViaAB_y+DatosVias.Ancho_Via);
+
+            DibujarLinea(DatosVias.LimiteInf_x, DatosVias.ViaAB_y, DatosVias.ViaU_x_Ini, DatosVias.ViaAB_y, Color.White, DatosVias.Ancho_Via);
+            DibujarLinea(DatosVias.LimiteInf_x, DatosVias.ViaBA_y, DatosVias.ViaU_x_Ini, DatosVias.ViaBA_y, Color.White, DatosVias.Ancho_Via);
+            DibujarLinea(DatosVias.ViaU_x_Fi, DatosVias.ViaAB_y, DatosVias.LimiteSup_x, DatosVias.ViaAB_y, Color.White, DatosVias.Ancho_Via);
+            DibujarLinea(DatosVias.ViaU_x_Fi, DatosVias.ViaBA_y, DatosVias.LimiteSup_x, DatosVias.ViaBA_y, Color.White, DatosVias.Ancho_Via);
+            DibujarLinea(DatosVias.ViaU_x_Ini, DatosVias.ViaU_y, DatosVias.ViaU_x_Fi, DatosVias.ViaU_y, Color.White, DatosVias.Ancho_Via);
+            DibujarLinea(DatosVias.ViaU_x_Ini, DatosVias.ViaAB_y, DatosVias.ViaU_x_Ini + DatosVias.Ancho_Via, DatosVias.ViaBA_y, Color.White, DatosVias.ViaBA_y - DatosVias.ViaAB_y + DatosVias.Ancho_Via);
+            DibujarLinea(DatosVias.ViaU_x_Fi, DatosVias.ViaAB_y, DatosVias.ViaU_x_Fi + DatosVias.Ancho_Via, DatosVias.ViaBA_y, Color.White, DatosVias.ViaBA_y - DatosVias.ViaAB_y + DatosVias.Ancho_Via);
 
             MostrarTrenes();
 
@@ -129,11 +131,11 @@ namespace Ferroviario
         private void DibujarLinea(float xIni, float yIni, float xFinal, float yFinal, Color color, float ancho)
         {
             Texture2D pixel = new Texture2D(spriteBatch.GraphicsDevice, 1, 1, false, SurfaceFormat.Color);
-			pixel.SetData(new[]{ color });
+            pixel.SetData(new[] { color });
 
             var origin = new Vector2(0f, 0f);
-            var scale = new Vector2(xFinal-xIni, ancho);
-            var point = new Vector2(xIni,yIni);
+            var scale = new Vector2(xFinal - xIni, ancho);
+            var point = new Vector2(xIni, yIni);
             spriteBatch.Draw(pixel, point, null, color, 0, origin, scale, SpriteEffects.None, 0);
         }
 
@@ -148,7 +150,7 @@ namespace Ferroviario
             //Mostramos los coches incorporados a la interfície gráfica
             foreach (Tren t in this.DatosVias.Trenes)
             {
-                Vector2 V = new Vector2(t.X, t.Y-DatosVias.Alto_Tren);
+                Vector2 V = new Vector2(t.X, t.Y - DatosVias.Alto_Tren);
                 switch (t.Via)
                 {
                     case "AB":
@@ -169,6 +171,7 @@ namespace Ferroviario
         public static DatosVias DatosVia_obj = new DatosVias();
         public static Tren trenAB = new Tren();
         public static Tren trenBA = new Tren();
+        public static bool ViaU = false;
 
         static void Main(string[] args)
         {
@@ -176,8 +179,8 @@ namespace Ferroviario
 
             //Iniciamos interfaz gráfica    
             using (game = new Game1(DatosVia_obj))
-            {                                
-                game.Run();                
+            {
+                game.Run();
             }
         }
 
@@ -196,7 +199,7 @@ namespace Ferroviario
             trenAB.Iterador_X = 1;
             trenAB.Via = "AB";
             DatosVia_obj.GraficosTrenes.Enqueue(trenAB);
-            
+
 
             trenBA.X = DatosVias.LimiteSup_x;
             trenBA.Y = DatosVias.ViaBA_y;
@@ -214,35 +217,66 @@ namespace Ferroviario
 
             TAB.Start(trenAB);
             TBA.Start(trenBA);
-            
+
         }
 
         static void MoverTren(object Tren)
         {
-            
+
             Tren tren = (Tren)Tren;
 
-            while (DentroLimites(tren)) {
-                Console.WriteLine($"Tren: {tren.Via} - {tren.X}");                
-                tren.X +=  tren.Iterador_X;
-                Thread.Sleep(tren.Velocidad);    
-                
-                if  (tren.X > 400  && tren.X < 800  ) {
+            while (DentroLimites(tren))
+            {
+
+                if (trenAB.X > 400 && trenAB.X < 800 && ViaU == false) 
+
+                {   
+                    if (trenBA.X < 802 ) {
+
+                        trenBA.X = 801;
+                    }
+                }
+
+                if (trenBA.X > 400 && trenBA.X < 800 && ViaU == false )
+                {
+                    if (trenAB.X > 398 ) {
+                    trenAB.X = 399;
+                    }
+                }
+
+
+                if ((trenAB.X > 800 || trenBA.X < 400) && ViaU == false)
+                    {
+                        ViaU = true;
+                    }
+
+                tren.X += tren.Iterador_X;
+                Console.WriteLine($"Tren: {tren.Via} - {tren.X}");
+                Thread.Sleep(tren.Velocidad);
+
+                if (tren.X > 400 && tren.X < 800)
+                {
                     tren.Y = DatosVias.ViaU_y;
-                } else {
-                    if (tren.Via == "BA") {
+                }
+                else
+                {
+                    if (tren.Via == "BA")
+                    {
                         tren.Y = DatosVias.ViaBA_y;
-                    } else {
+                    }
+                    else
+                    {
                         tren.Y = DatosVias.ViaAB_y;
-                    }             
-                }        
-            }  
+                    }
+                }
+            }
 
         }
 
         static bool DentroLimites(Tren tren)
         {
-            if  (tren.X < DatosVias.LimiteInf_x  || tren.X >  DatosVias.LimiteSup_x ) {
+            if (tren.X < DatosVias.LimiteInf_x || tren.X > DatosVias.LimiteSup_x)
+            {
                 return false;
             }
 
